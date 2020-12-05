@@ -36,19 +36,19 @@ public class BaiduMtjPlugin implements FlutterPlugin, MethodCallHandler, Activit
         switch (call.method) {
             case "PageStart":
                 actionPageStart((String) params.get("pageName"));
-                result.success(null);
+                result.success("android start");
                 break;
             case "PageEnd":
                 actionPageEnd((String) params.get("pageName"));
-                result.success(null);
+                result.success("android end");
                 break;
             case "LogEvent":
                 actionLogEvent(params);
-                result.success(null);
+                result.success("android event");
                 break;
             case "LogError":
                 actionLogError((String) params.get("errorData"));
-                result.success(null);
+                result.success("android error");
                 break;
             default:
                 result.notImplemented();

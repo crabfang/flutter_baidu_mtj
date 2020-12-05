@@ -1,0 +1,29 @@
+PODS:
+  - baidu_mtj (0.0.1):
+    - BaiduMobStatCodeless
+    - Flutter
+  - BaiduMobStatCodeless (5.2.7)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - baidu_mtj (from `.symlinks/plugins/baidu_mtj/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - BaiduMobStatCodeless
+
+EXTERNAL SOURCES:
+  baidu_mtj:
+    :path: ".symlinks/plugins/baidu_mtj/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  baidu_mtj: 57a1ef6dabe293f98c5ed9bd47c25cc66d8e9c39
+  BaiduMobStatCodeless: 09c3738fd435a6c13c248f39aa0f15d3f5ee7daa
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.8.4

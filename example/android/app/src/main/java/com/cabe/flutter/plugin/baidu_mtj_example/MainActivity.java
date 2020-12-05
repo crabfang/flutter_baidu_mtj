@@ -13,6 +13,7 @@ public class MainActivity extends FlutterActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatService.setAuthorizedState(this,true);
+        StatService.setDebugOn(true);
         StatService.start(this);
     }
 }
