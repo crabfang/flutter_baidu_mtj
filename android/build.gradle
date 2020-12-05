@@ -3,25 +3,25 @@ version '1.0'
 
 buildscript {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
         jcenter()
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
-        classpath 'com.baidu.mobstat:mtj-circle-plugin:latest.integration'
     }
 }
 
 rootProject.allprojects {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
         jcenter()
     }
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'mtj-circle-plugin'
 
 android {
     compileSdkVersion 29
@@ -32,8 +32,9 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+    consumerProguardFiles "consumer-rules.pro"
 }
 
 dependencies {
-    api 'com.github.crabfang:AliRecognition:1.1.1'
+    api 'com.baidu.mobstat:mtj-sdk:4.0.3.5'
 }
