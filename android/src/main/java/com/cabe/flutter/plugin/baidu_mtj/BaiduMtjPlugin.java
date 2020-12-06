@@ -34,6 +34,22 @@ public class BaiduMtjPlugin implements FlutterPlugin, MethodCallHandler, Activit
         Log.d("BaiduMtj", call.method);
         Map<String, Object> params = (Map<String, Object>) call.arguments;
         switch (call.method) {
+            case "StartMtj":
+                setAppKey((String) params.get("appKey"));
+                result.success("android start mtj");
+                break;
+            case "SetChannel":
+                setChannel((String) params.get("channel"));
+                result.success("android channel");
+                break;
+            case "SetUserId":
+                set((String) params.get("userId"));
+                result.success("android userId");
+                break;
+            case "SetDebug":
+                setDebug((boolean) params.get("isDebug"));
+                result.success("android debug");
+                break;
             case "PageStart":
                 actionPageStart((String) params.get("pageName"));
                 result.success("android start");
@@ -54,6 +70,19 @@ public class BaiduMtjPlugin implements FlutterPlugin, MethodCallHandler, Activit
                 result.notImplemented();
                 break;
         }
+    }
+
+    private void setAppKey(String appKey) {
+        StatService.setAppKey(appKey);
+        StatService.start(activityBinding.getActivity());
+    }
+
+    private void setChannel(String channel) {
+        StatService.setAppChannel(activityBinding.getActivity(), channel, true);
+    }
+
+    private void setDebug(boolean isDebug) {
+        StatService.setDebugOn(isDebug);
     }
 
     private void actionPageStart(String pageName) {

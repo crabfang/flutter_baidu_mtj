@@ -5,6 +5,26 @@ import 'package:flutter/services.dart';
 class BaiduMtj {
   static const MethodChannel _channel = const MethodChannel('BaiduMtj');
 
+  static Future<String> setChannel(String channel) async {
+    Map<String, Object> params = {"channel": channel};
+    return await _channel.invokeMethod("SetChannel", params);
+  }
+
+  static Future<String> setUserId(String userId) async {
+    Map<String, Object> params = {"userId": userId};
+    return await _channel.invokeMethod("SetUserId", params);
+  }
+
+  static Future<String> setDebug(bool isDebug) async {
+    Map<String, Object> params = {"isDebug": isDebug};
+    return await _channel.invokeMethod("SetDebug", params);
+  }
+
+  static Future<String> startMtj(String appKey) async {
+    Map<String, Object> params = {"appKey": appKey};
+    return await _channel.invokeMethod("StartMtj", params);
+  }
+
   static Future<String> pageStart(String pageName) async {
     Map<String, Object> params = {"pageName": pageName};
     return await _channel.invokeMethod("PageStart", params);
