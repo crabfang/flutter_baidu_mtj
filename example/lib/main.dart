@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:io';
 import 'package:baidu_mtj/baidu_mtj.dart';
 import 'package:flutter/material.dart';
 
@@ -25,17 +25,23 @@ class _MyAppState extends State<MyApp> {
 
   void _incrementCounter() {
     Future<String> result;
-    switch(count % 4) {
+    switch(count % 5) {
       case 0 :
-        result = BaiduMtj.pageStart("PageName");
+        BaiduMtj.setChannel("FlutterChannel-$count");
+        BaiduMtj.setDebug((count / 5) % 2 == 0);
+        var appKey = Platform.isIOS ? "5a28e57b12" : "715e2e221c";
+        result = BaiduMtj.startMtj(appKey);
         break;
       case 1 :
-        result = BaiduMtj.pageEnd("PageName");
+        result = BaiduMtj.pageStart("PageName");
         break;
       case 2 :
-        result = BaiduMtj.logEvent("eventId", eventLabel: "label");
+        result = BaiduMtj.pageEnd("PageName");
         break;
       case 3 :
+        result = BaiduMtj.logEvent("eventId", eventLabel: "label");
+        break;
+      case 4:
         result = BaiduMtj.logError("errorJson");
         break;
     }

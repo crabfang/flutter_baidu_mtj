@@ -31,8 +31,8 @@ public class BaiduMtjPlugin implements FlutterPlugin, MethodCallHandler, Activit
 
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull final Result result) {
-        Log.d("BaiduMtj", call.method);
         Map<String, Object> params = (Map<String, Object>) call.arguments;
+        Log.d("BaiduMtj", call.method + ": " + params);
         switch (call.method) {
             case "StartMtj":
                 setAppKey((String) params.get("appKey"));
@@ -43,7 +43,7 @@ public class BaiduMtjPlugin implements FlutterPlugin, MethodCallHandler, Activit
                 result.success("android channel");
                 break;
             case "SetUserId":
-                set((String) params.get("userId"));
+                setUserId((String) params.get("userId"));
                 result.success("android userId");
                 break;
             case "SetDebug":
@@ -79,6 +79,10 @@ public class BaiduMtjPlugin implements FlutterPlugin, MethodCallHandler, Activit
 
     private void setChannel(String channel) {
         StatService.setAppChannel(activityBinding.getActivity(), channel, true);
+    }
+
+    private void setUserId(String userId) {
+        StatService.setUserId(activityBinding.getActivity(), userId);
     }
 
     private void setDebug(boolean isDebug) {

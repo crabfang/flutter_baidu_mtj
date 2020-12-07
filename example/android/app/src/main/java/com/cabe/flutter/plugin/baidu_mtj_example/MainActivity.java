@@ -9,11 +9,11 @@ import com.baidu.mobstat.StatService;
 import io.flutter.embedding.android.FlutterActivity;
 
 public class MainActivity extends FlutterActivity {
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        StatService.setAuthorizedState(this,true);
-        StatService.setDebugOn(true);
-        StatService.start(this);
-    }
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        StatService.setAuthorizedState(this,true);
+//        StatService.setDebugOn(true);
+//        StatService.start(this);
+//    }
 }
